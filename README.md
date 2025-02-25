@@ -7,6 +7,9 @@
 
 **Data Engineering 101** es un curso autodidacta; recibirás un correo electrónico cada tres días. A lo largo de los siguientes 12 correos electrónicos, aprenderás lo siguiente:
 
+### Créditos  
+Traducido al español del curso original, **Data Engineering 101** de [Joseph Machado](https://startdataengineering.com) - StartDataEngineering.
+
 ---
 
 ##  Tabla de Contenidos  
@@ -61,5 +64,9 @@ Al final de este curso, comprenderás los fundamentos clave de la ingeniería de
 
 ---
 
-### Créditos  
-Traducido al español del curso original, **Data Engineering 101** de [Joseph Machado](https://startdataengineering.com) - StartDataEngineering.
+
+### DISCLAIMER  
+Como participante del curso, no pretendo atribuirme ningún mérito ni la propiedad de este material. Esta es solo una traducción del material original del curso **Data Engineering 101** de **Joseph Machado**.  
+
+Animo a cualquier lector ocasional a inscribirse en el curso original y mostrar su apoyo a dicho proyecto y al autor del curso.  
+Puedes suscribirte aquí: [https://www.startdataengineering.com](https://www.startdataengineering.com)  

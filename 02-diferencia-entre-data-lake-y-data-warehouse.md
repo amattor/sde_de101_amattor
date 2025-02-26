@@ -1,0 +1,111 @@
+# ¿Cuál es la diferencia entre un data lake y un data warehouse?
+
+**12 de abril de 2022 · 4 min de lectura**
+
+---
+
+## Introducción
+Con el rápido crecimiento del ecosistema de datos, surgen nuevos términos cada semana. Algunos de los más populares incluyen “data lakes” y “data warehouses”. Si estás:  
+
+- Tratando de entender las diferencias entre un data lake y un data warehouse  
+- Frustrado por el contenido de marketing de proveedores que buscan vender su producto de lake/warehouse  
+
+Entonces, este artículo es para ti. Al final de este artículo, comprenderás qué son los data lakes y los data warehouses, y cómo elegir las herramientas adecuadas para tus data lakes y data warehouses.
+
+---
+
+## Data lakes y data warehouses
+
+### Data lake
+Un data lake es un lugar de almacenamiento donde se vierte la información en bruto y se utiliza como fuente de datos para tu data warehouse.  
+
+En comparación con un data warehouse, los data lakes son rápidos de configurar debido a que no requieren limpieza ni modelado de datos.  
+
+**Lectura recomendada:** [¿Qué es un área de staging?](#)
+
+### Data warehouse
+El data warehousing es el proceso de comprender los datos, analizar los patrones de uso de los usuarios finales, curar, limpiar, modelar y realizar pruebas de calidad de los datos.  
+
+El resultado del data warehousing son datos listos para usar (también conocidos como el data warehouse). Los datos en un data warehouse se utilizan para calcular KPI críticos para el negocio.  
+
+Debido al trabajo de curación y limpieza requerido, generalmente es más lento de configurar en comparación con un data lake.  
+
+**Lectura recomendada:** [¿Qué es un data warehouse?](#)
+
+---
+
+## Criterios para elegir herramientas de data lake y data warehouse
+
+### Factor: Servicio de almacenamiento en la nube (por ejemplo, S3)
+- **Esquema de datos:**  
+  - Se puede almacenar datos de cualquier esquema.  
+  - Sistemas como Spark pueden inferir el esquema al leer los datos (schema-on-read).  
+
+- **Formato de datos:**  
+  - Soporta todos los formatos populares y personalizados.  
+
+- **Tamaño de los datos:**  
+  - El almacenamiento cuesta menos que en las bases de datos OLAP.  
+  - Generalmente, el almacenamiento varía desde bytes hasta Peta y Exabytes.  
+
+- **Ingesta de datos:**  
+  - Se puede ingerir datos a granel o en flujos.  
+
+- **Lectura de datos:**  
+  - Se pueden leer datos a granel y en flujos.  
+  - Soporte para activación de eventos en respuesta a datos entrantes (por ejemplo, disparar un trabajo en AWS cuando los datos llegan a S3).  
+
+- **Procesamiento de datos:**  
+  - Requiere un servicio separado para procesar los datos (por ejemplo, Spark, Presto, Python, Scala).  
+
+- **Usuarios finales:**  
+  - Los usuarios necesitan tener conocimientos técnicos para acceder a los datos.  
+
+- **Lotes vs. streaming:**  
+  - Generalmente se usa para volcar datos en lotes y en pipelines de datos en streaming.  
+
+- **Gestión de datos:**  
+  - Se debe gestionar manualmente la estructura de carpetas, rutas, metadatos, permisos, tamaños de archivos individuales, etc.  
+
+---
+
+### Factor: Base de Datos OLAP (por ejemplo, Snowflake)
+- **Esquema de datos:**  
+  - Es necesario definir el esquema para cargar los datos en una tabla (schema-on-write).  
+  - Algunas bases de datos OLAP permiten columnas no estructuradas, permitiendo almacenar datos sin definir el esquema (por ejemplo, almacenar datos no estructurados como una columna).  
+
+- **Formato de datos:**  
+  - Soporta todos los formatos populares (por ejemplo, Avro, Parquet, ORC, etc.).  
+  - La mayoría de las bases de datos OLAP tienen su propio formato interno de almacenamiento.  
+
+- **Tamaño de los datos:**  
+  - El almacenamiento cuesta más que en la nube.  
+  - Alternativamente, los datos se pueden almacenar en la nube y definir el esquema como una tabla externa.  
+
+- **Ingesta de datos:**  
+  - Se puede ingerir datos a granel o en flujos (por ejemplo, con el conector snowflake-kafka).  
+
+- **Lectura de datos:**  
+  - Se pueden leer datos a granel y en flujos (por ejemplo, con Snowflake streams).  
+  - Las bases de datos OLAP no soportan la activación de eventos basados en datos entrantes.  
+
+- **Procesamiento de datos:**  
+  - Excelentes para procesar grandes volúmenes de datos.  
+  - No son muy buenas procesando ciertos tipos de datos, como audio y video.  
+
+- **Usuarios finales:**  
+  - Cualquier persona que sepa SQL o use una herramienta de visualización de datos que permita consultas sin SQL (por ejemplo, Metabase, Looker).  
+
+- **Lotes vs. streaming:**  
+  - Mejor adaptadas para el procesamiento por lotes debido a una mayor latencia y procesamiento bajo demanda.  
+  - Las vistas materializadas pueden ofrecer vistas actualizadas, pero tienen limitaciones.  
+
+- **Gestión de datos:**  
+  - La mayoría de las bases de datos OLAP tienen tablas de metadatos integradas, esquemas de permisos estructurados, lo que facilita la gestión.  
+
+---
+
+## Conclusión
+Históricamente, los data lakes se han asociado con servicios de almacenamiento en la nube y los data warehouses con bases de datos OLAP. Sin embargo, con nuevos sistemas como [Delta Lake](https://delta.io/), [Snowflake](https://www.snowflake.com/) y [Clickhouse](https://clickhouse.com/), las fronteras se están diluyendo.  
+
+A la hora de elegir una herramienta para tu pipeline de datos, usa estos criterios para tomar la mejor decisión. Recuerda que cada sistema tiene sus particularidades, así que asegúrate de leer su documentación respecto a los puntos anteriores.  
